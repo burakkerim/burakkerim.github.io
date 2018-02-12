@@ -1,7 +1,7 @@
 
 L.marker([36.684193, 27.376232]).bindPopup('<img src="gallery-sail/knidos.jpg" alt="knidos"/> <p>Knidos</p>').addTo(map);
 
-L.marker([36.686822, 27.370380]).bindPopup('<img src="gallery-sail/knidos2.jpg" alt="knidos"/> <p>Knidos</p>').addTo(map);
+L.marker([36.686822, 27.370380]).bindPopup('<img src="gallery-sail/knidos2.JPG" alt="knidos"/> <p>Knidos</p>').addTo(map);
 
 L.marker([37.044204, 27.221146]).bindPopup('<img src="gallery-sail/IMG_0328.JPG" alt="gumusluk"/> <p></p>').addTo(map);
 
