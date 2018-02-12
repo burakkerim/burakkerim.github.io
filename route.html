@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+  <title>Sailing</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+
+  <script src="tracks/0.geojson" type="text/javascript"></script>
+  <script src="tracks/1.geojson" type="text/javascript"></script>
+  <script src="tracks/2.geojson" type="text/javascript"></script>
+  <script src="tracks/3.geojson" type="text/javascript"></script>
+  <script src="tracks/4.geojson" type="text/javascript"></script>
+  <script src="tracks/5.geojson" type="text/javascript"></script>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    #map {
+      margin: 0 auto;
+      width: 90%;
+      height: 90%;
+    }
+    img {
+      max-width:300px; 
+      height:auto;
+    }
+  </style>
+
+  
+</head>
+<body>
+
+<div id='map'></div>
+
+<div class="container" style="margin-top:20px;">
+
+<button type="button" class="btn btn-info" onclick="markerHideShow()">Hide/Show Markers</button>
+
+<h3></h3>
+<table>
+  <tr>
+    <td><canvas id="l-gocek" width="100" height="10"></canvas></td> <td> Fethiye - Göcek </td>
+  </tr>
+</table>
+
+<h3>Med-Aegean</h3>
+<table>
+  <tr>
+    <td><canvas id="l-fethiye-marmaris" width="100" height="10"></canvas></td> <td> Fethiye - Marmaris </td>
+  </tr>
+  <tr>
+    <td><canvas id="l-marmaris-datca" width="100" height="10"></canvas></td> <td> Marmaris - Datca </td>
+  </tr>
+  <tr>
+    <td><canvas id="l-datca-didim" width="100" height="10"></canvas></td> <td> Datca - Didim </td>
+  </tr>
+  <tr>
+    <td><canvas id="l-didim-turgutreis" width="100" height="10"></canvas></td> <td> Didim - Turgutreis </td>
+  </tr>
+  <tr>  
+    <td><canvas id="l-turgutreis-bozburun" width="100" height="10"></canvas></td> <td> Turgutreis - Bozburun </td>
+  </tr>
+</table>
+  
+</div>
+
+<script>
+  var canvas = document.getElementById('l-gocek');
+  var context = canvas.getContext('2d');
+  context.beginPath();
+  context.moveTo(5, 5);
+  context.lineTo(95, 5);
+  context.strokeStyle="DodgerBlue";
+  context.lineWidth=5;
+  context.lineCap="round";
+  context.stroke();
+
+  canvas = document.getElementById('l-fethiye-marmaris');
+  context = canvas.getContext('2d');
+  context.beginPath();
+  context.moveTo(5, 5);
+  context.lineTo(95, 5);
+  context.strokeStyle="FireBrick";
+  context.lineWidth=5;
+  context.lineCap="round";
+  context.stroke();
+
+  canvas = document.getElementById('l-marmaris-datca');
+  context = canvas.getContext('2d');
+  context.beginPath();
+  context.moveTo(5, 5);
+  context.lineTo(95, 5);
+  context.strokeStyle="GoldenRod";
+  context.lineWidth=5;
+  context.lineCap="round";
+  context.stroke();
+
+  canvas = document.getElementById('l-datca-didim');
+  context = canvas.getContext('2d');
+  context.beginPath();
+  context.moveTo(5, 5);
+  context.lineTo(95, 5);
+  context.strokeStyle="MediumVioletRed";
+  context.lineWidth=5;
+  context.lineCap="round";
+  context.stroke();
+
+  canvas = document.getElementById('l-didim-turgutreis');
+  context = canvas.getContext('2d');
+  context.beginPath();
+  context.moveTo(5, 5);
+  context.lineTo(95, 5);
+  context.strokeStyle="ForestGreen";
+  context.lineWidth=5;
+  context.lineCap="round";
+  context.stroke();
+
+  canvas = document.getElementById('l-turgutreis-bozburun');
+  context = canvas.getContext('2d');
+  context.beginPath();
+  context.moveTo(5, 5);
+  context.lineTo(95, 5);
+  context.strokeStyle="YellowGreen";
+  context.lineWidth=5;
+  context.lineCap="round";
+  context.stroke();
+
+
+</script>
+
+
+<script>
+
+   var map = L.map('map').setView([36.9, 27.75], 9);
+
+  L.tileLayer('http://{s}.tile.cloudmade.com/9067860284bc491e92d2342cc51d47d9/998/256/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Imagery © <a href="http://cloudmade.com">CloudMade</a>'}).addTo(map);
+  
+  var style0 = { "color": "DodgerBlue"};
+  L.geoJson(track0, {
+      style: style0
+  }).addTo(map);
+
+  var style1 = {
+      "color": "FireBrick",
+      // "weight": 5,
+      // "opacity": 0.65
+  };
+  L.geoJson(track1, {
+      style: style1
+  }).addTo(map);
+
+  var style2 = { "color": "GoldenRod"};
+  L.geoJson(track2, {
+      style: style2
+  }).addTo(map);
+
+  var style3 = { "color": "MediumVioletRed"};
+  L.geoJson(track3, {
+      style: style3
+  }).addTo(map);
+
+  var style4 = { "color": "ForestGreen"};
+  L.geoJson(track4, {
+      style: style4
+  }).addTo(map);
+  
+  var style5 = { "color": "YellowGreen"};
+  L.geoJson(track5, {
+      style: style5
+  }).addTo(map);
+
+
+  // marker visibility
+  var hidden = false;
+
+  function markerHideShow() {
+
+    if (hidden) {
+      document.getElementsByClassName('leaflet-pane leaflet-marker-pane')[0].style.display = "block";
+      document.getElementsByClassName('leaflet-pane leaflet-shadow-pane')[0].style.display = "block";      
+      hidden = false;
+    }
+    else{
+      document.getElementsByClassName('leaflet-pane leaflet-marker-pane')[0].style.display = "none";
+      document.getElementsByClassName('leaflet-pane leaflet-shadow-pane')[0].style.display = "none";      
+      hidden = true;
+    }    
+  }
+
+
+
+</script>
+
+<script src="images.js" type="text/javascript"></script>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
