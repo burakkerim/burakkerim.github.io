@@ -1645,7 +1645,7 @@ h2.typoh2 {
 /*-- //typography --*/
 /*-- gallery --*/
 .gallery {
-    padding: 5em 0;
+    padding: 0;
 }
 .grid {
 	position: relative;
@@ -2910,7 +2910,7 @@ h4.modal-title {
     float: none;
 }
 .gallery {
-    padding: 4em 0;
+    padding: 0;
 }
 .agileits_services_grid {
     float: left;
@@ -3289,7 +3289,7 @@ h4.agileinfo-head {
     margin-bottom: 1.8em;
 }
 .gallery {
-    padding:3em 0;
+    padding:0;
 }
 .gallery-grid {
     width: 100%;
@@ -3760,7 +3760,7 @@ h4.agileinfo-head {
     letter-spacing: 0px;
 }
 .gallery {
-    padding: 2em 0;
+    padding: 0;
 }
 .w3ls_service_icon i {
     padding-top: .25em;
