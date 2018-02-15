@@ -1,0 +1,1 @@
+find . -maxdepth 1 -iname "*.jpg" | xargs -L1} convert -resize 10% "{}" ./small/"{}"
