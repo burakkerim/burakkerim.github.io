@@ -773,7 +773,7 @@ h4.agileinfo-head {
     color: #a42b05;
     text-transform: uppercase;
     font-weight: 200;
-    margin: 0.7em 0;
+    margin: 0.3em 0;
     font-size: 1.2em;
 }
 
@@ -927,6 +927,7 @@ span.ttt {
     text-align: center;
     background: #e0e0e0;
     background: #ffc107;
+    margin-bottom: 1.5em;
 	background:#fff;
     padding: 25px 40px;
     -webkit-box-shadow: 0 0 40px #aaa;
@@ -942,7 +943,7 @@ span.ttt {
 	box-shadow:0px 1px 8px 0px rgba(158, 158, 158, 0.75);
 }
 .grid1:hover {
-    background: #12ccc3;
+    background: #ffcc66;
 }
 .grid1 h4 {
     font-size: 20px;
