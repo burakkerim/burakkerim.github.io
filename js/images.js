@@ -33,7 +33,9 @@ L.marker([36.414775, 27.387856]).bindPopup('<img src="gallery-sail/DSC_0243.JPG"
 
 // L.marker([36.485656, 27.523024]).bindPopup('<video width="320" height="240" controls> <source src="gallery-sail/sail.mp4" type="video/mp4"> Your browser does not support the video tag. </video> <p></p>').addTo(map);
 
-L.marker([36.485656, 27.523024]).bindPopup('<video width="300" height="240" controls> <source src="gallery-sail/sail.mkv"> Your browser does not support the video tag. </video> <p></p>').addTo(map);
+L.marker([36.485656, 27.523024]).bindPopup('<video width="300" height="240" controls> <source src="gallery-sail/sail.mkv"> Your browser does not support the video tag. </video>', {
+  maxWidth: "auto"
+}).addTo(map);
 
 L.marker([36.616193, 27.835193]).bindPopup('<img src="gallery-sail/DSC_0260.JPG" alt="simi"/> <p></p>').addTo(map);
 
@@ -67,6 +69,17 @@ L.marker([36.677343, 28.917303]).bindPopup('<img src="gallery-sail/DSC_1058-ANIM
 L.marker([36.573392, 29.085761]).bindPopup('<img src="gallery-sail/IMG_1103.JPG" alt="kayakoy"/> <p></p>').addTo(map);
 
 L.marker([36.623643, 29.102794]).bindPopup('<img src="gallery-sail/DSC_0293.JPG" alt="fethiye"/> <p></p>').addTo(map);
+
+
+L.marker([36.540185, 28.189962]).bindPopup('<video width="640" height="360" controls> <source src="gallery-sail/rodos.mp4"> Your browser does not support the video tag. </video>', {
+  maxWidth: "auto"
+}).addTo(map);
+
+L.marker([36.614301, 27.857772]).bindPopup('<img src="gallery-sail/20220826_055315.jpg" alt="simi"/> <p></p>').addTo(map);
+
+L.marker([36.091311, 28.088399]).bindPopup('<img src="gallery-sail/20220827_143152.jpg" alt="lindos"/> <p></p>').addTo(map);
+
+L.marker([36.445159, 28.227231]).bindPopup('<img src="gallery-sail/20220826_173501.jpg" alt="rodos"/> <p></p>').addTo(map);
 
 
 
